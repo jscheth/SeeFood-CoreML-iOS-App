@@ -19,6 +19,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         
         imagePicker.delegate = self
+        
+        navigationController?.navigationBar.barTintColor = UIColor.systemBlue
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.isTranslucent = false
 
     }
     
@@ -79,7 +83,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
-        imagePicker.sourceType = .photoLibrary
+        imagePicker.sourceType = .camera //to run on emulator use .photoLibrary
         imagePicker.allowsEditing = false
         present(imagePicker, animated: true, completion: nil)
     }
